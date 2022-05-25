@@ -1,0 +1,65 @@
+conky.config = {
+	background = true,
+	use_xft = true,
+	font = '123:size=8.5',
+	xftalpha = 0.1,
+	--detect_battery = true,
+	detect_battery = 'BAT1',
+	update_interval = 1,
+	update_interval_on_battery = 2,
+	total_run_times = 0,
+	own_window = true,
+	own_window_type = 'normal',
+	own_window_transparent = false,
+	own_window_class = 'conky-semi',
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_argb_visual = true,
+	own_window_colour = '#020203',
+	own_window_argb_value = 169,
+	double_buffer = true,
+	minimum_width = 278, minimum_height = 450,
+	maximum_width = 278,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = true,
+	default_color = '#a7b4c4',
+    default_shade_color = '#cdcdcd',
+	default_outline_color = '#232325',
+	alignment = 'top_right',
+
+	gap_x = 28,
+	gap_y = 64,
+
+	stippled_borders = 0,
+	border_inner_margin = 15,
+	border_width = 1,
+
+	no_buffers = false,
+	uppercase = false,
+	cpu_avg_samples = 2,
+	net_avg_samples = 1,
+	--override_utf8_locale = true,
+	use_spacer = 'right',
+	text_buffer_size = 256,
+	lua_load = '~/.conky/dashboard.lua',
+	lua_draw_hook_pre = 'dashboard'
+};
+
+conky.text = [[
+${font Noto Sans CJK JP,Noto Sans CJK JP Light, NotoSansJP-Regular:bold:size=10}パロット リナックス$alignr$uptime_short
+${voffset 210}$hr
+${font sans-serif:normal:size=10}❱❱ Disk ❱❭${voffset 3}
+Read:  ${diskiograph_read 12, 150}$alignr   ${diskio_read}
+Write:  ${diskiograph_write 12, 150}$alignr   ${diskio_write}
+Swap:  ${swapbar 8, 150}$alignr   ${swap}${voffset 4}
+${color #c5a2de}$alignr❬❰ Loopback Address ❰❰${font Arial:bold:size=10}${voffset 3}
+${color #ceb4e0}${execi 2.5 netstat -tuln | grep LISTEN}${voffset 4}
+${color #a2c3de}${font sans-serif:normal:size=10}❱❱ Processes ❱❭${color #a2decc}${alignr}Total: ${processes}${voffset 6}${font Arial:bold:size=10}
+${color #95b3b8}Name $alignr PID      CPU       MEM${font sans-serif:normal:size=10}
+${top name 1} $alignr ${top pid 1}$alignr ${top cpu 1}% $alignr ${top mem_vsize 1}
+${top name 2} $alignr ${top pid 2}$alignr ${top cpu 2}% $alignr ${top mem_vsize 2}
+${top name 3} $alignr ${top pid 3}$alignr ${top cpu 3}% $alignr ${top mem_vsize 3}
+${top name 4} $alignr ${top pid 4}$alignr ${top cpu 4}% $alignr ${top mem_vsize 4}
+${top name 5} $alignr ${top pid 5}$alignr ${top cpu 5}% $alignr ${top mem_vsize 5}
+]];
