@@ -61,8 +61,9 @@ function colorHex (color, alpha)
 end
 
 -- Text --
-function font (font, size)
-	cairo_set_font_face(canvas.ctx, font)
+function font (font, size, bold, italic) -- bold = is bold font [boolean true/false] -- italic = is font italic [boolean true/false]
+	cairo_select_font_face(canvas.ctx, font, (italic and 1) or CAIRO_FONT_SLANT_NORMAL, (bold and 1) or CAIRO_FONT_SLANT_NORMAL)
+	cairo_set_font_size(canvas.ctx, size or 10)
 end
 function text (msg, x, y)
   	cairo_move_to(canvas.ctx, x, y)
