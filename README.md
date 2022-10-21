@@ -1,6 +1,8 @@
 # conky-rice
 my custom lua conky widget rice.
 
+![alt text](https://github.com/TanawatJukmongkol/conky-rice/blob/f78ca6e52726d9a6ca2936aa55b68ac665bd657d/conky.gif)
+
 # How to install:
   1. Open the terminal, copy and paste.
   ```
